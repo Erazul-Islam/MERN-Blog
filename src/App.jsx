@@ -6,6 +6,7 @@ import Signup from "./Pages/Signup"
 import Dashboard from "./Pages/Dashboard"
 import Projects from "./Pages/Projects"
 import Header from "./components/Header"
+import Foot from "./components/Foot"
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Header></Header>
+        <Header></Header>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/about" element={<About></About>}></Route>
@@ -22,7 +23,7 @@ function App() {
           <Route path="/projects" element={<Projects></Projects>}></Route>
           <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
         </Routes>
-      
+        <Foot></Foot>
       </BrowserRouter>
     </>
   )
