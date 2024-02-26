@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import { Button, Navbar, TextInput} from "flowbite-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {AiOutlineSearch} from 'react-icons/ai'
 import {FaMoon} from 'react-icons/fa'
 
 
 const Header = () => {
+    const path = useLocation().pathname;
     return (
         <Navbar className="border-b-2">
             <Link className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white" to='/'>
@@ -28,25 +29,25 @@ const Header = () => {
                         <FaMoon></FaMoon>
                 </Button>
                 <Link to='/sign-in'>
-                    <Button  gradientDuoTone='purpleToBlue' pill>
+                    <Button  gradientDuoTone='purpleToBlue' outline>
                             Sign In
                     </Button>
                 </Link>
                 <Navbar.Toggle></Navbar.Toggle>
             </div>
                 <Navbar.Collapse>
-                    <Navbar.Link>
-                        <Link to='/'>
+                    <Navbar.Link active={path === '/'} as={'div'}>
+                        <Link className="font-bold text-xl" to='/'>
                             Home
                         </Link>
                     </Navbar.Link>
-                    <Navbar.Link>
-                        <Link to='/about'>
+                    <Navbar.Link  active={path === '/about'}  as={'div'}>
+                        <Link className="font-bold text-xl" to='/about'>
                             About
                         </Link>
                     </Navbar.Link>
-                    <Navbar.Link>
-                        <Link to='/projects'>
+                    <Navbar.Link active={path === '/projects'} as={'div'} >
+                        <Link className="font-bold text-xl" to='/projects'>
                             Projects
                         </Link>
                     </Navbar.Link>
